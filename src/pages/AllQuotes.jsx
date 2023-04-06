@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import useHttp from "../hooks/use-http";
 import { getAllQuotes } from "../lib/api";
 import QuoteList from "../components/quotes/QuoteList";
-import LoadingSpinner from "../components/UI/LoadingSpinner";
 import NoQuotesFound from "../components/quotes/NoQuotesFound";
 
 const AllQuotes = () => {
@@ -18,11 +17,7 @@ const AllQuotes = () => {
   }, [sendRequest]);
 
   if (status === "pending") {
-    return (
-      <div className='centered'>
-        <LoadingSpinner />
-      </div>
-    );
+    return <div className='centered'></div>;
   }
 
   if (error) {
